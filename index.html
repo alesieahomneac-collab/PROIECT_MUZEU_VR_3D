@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Aly - Virtual Art</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script>
+        // SCRIPT PENTRU INTERACȚIUNE (Cerința 5)
+        AFRAME.registerComponent('interactiv', {
+            init: function () {
+                let el = this.el;
+                let posInitiala = el.getAttribute('position');
+                
+                el.addEventListener('mouseenter', function () {
+                    el.setAttribute('animation', {
+                        property: 'scale',
+                        to: '1.2 1.2 1.2',
+                        dur: 200
+                    });
+                    // Îl scoatem puțin în față să nu intre în perete
+                    el.setAttribute('position', {x: posInitiala.x, y: posInitiala.y, z: posInitiala.z + 0.3});
+                });
+
+                el.addEventListener('mouseleave', function () {
+                    el.setAttribute('animation', {
+                        property: 'scale',
+                        to: '1 1 1',
+                        dur: 200
+                    });
+                    el.setAttribute('position', posInitiala);
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="podea" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+            <img id="t1" src="assets/tablou1.jpg"> <img id="t2" src="assets/tablou2.jpg">
+            <img id="t3" src="assets/tablou3.jpg"> <img id="t4" src="assets/tablou4.jpg">
+            <img id="t5" src="assets/tablou5.jpg"> <img id="t6" src="assets/tablou6.jpg">
+            <img id="t7" src="assets/tablou7.jpg"> <img id="t8" src="assets/tablou8.jpg">
+            <img id="t9" src="assets/tablou9.jpg"> <img id="t10" src="assets/tablou10.jpg">
+            <img id="t11" src="assets/tablou11.jpg"> <img id="t12" src="assets/tablou12.jpg">
+            <img id="t13" src="assets/tablou13.jpg"> <img id="t14" src="assets/tablou14.jpg">
+            <img id="t15" src="assets/tablou15.jpg"> <img id="t16" src="assets/tablou16.jpg">
+            <img id="t17" src="assets/tablou17.jpg"> <img id="t18" src="assets/tablou18.jpg">
+            <img id="t19" src="assets/tablou19.jpg"> <img id="t20" src="assets/tablou20.jpg">
+            <img id="t21" src="assets/tablou21.jpg"> <img id="t22" src="assets/tablou22.jpg">
+            <img id="t23" src="assets/tablou23.jpg"> <img id="t24" src="assets/tablou24.jpg">
+            <img id="t25" src="assets/tablou25.jpg">
+        </a-assets>
+
+        <a-sky color="#111"></a-sky>
+        <a-plane src="#podea" rotation="-90 0 0" width="50" height="50" repeat="10 10"></a-plane>
+
+        <a-entity position="0 2.5 -10">
+            <a-image interactiv src="#t1" position="-9 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t2" position="-6 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t3" position="-3 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t4" position="0 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t5" position="3 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t6" position="6 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t7" position="9 0 0" width="2.5" height="3.5"></a-image>
+        </a-entity>
+
+        <a-entity position="0 2.5 10" rotation="0 180 0">
+            <a-image interactiv src="#t8" position="-9 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t9" position="-6 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t10" position="-3 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t11" position="0 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t12" position="3 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t13" position="6 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t14" position="9 0 0" width="2.5" height="3.5"></a-image>
+        </a-entity>
+
+        <a-entity position="-12 2.5 0" rotation="0 90 0">
+            <a-image interactiv src="#t15" position="-7.5 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t16" position="-4.5 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t17" position="-1.5 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t18" position="1.5 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t19" position="4.5 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t20" position="7.5 0 0" width="2.5" height="3.5"></a-image>
+        </a-entity>
+
+        <a-entity position="12 2.5 0" rotation="0 -90 0">
+            <a-image interactiv src="#t21" position="-6 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t22" position="-3 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t23" position="0 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t24" position="3 0 0" width="2.5" height="3.5"></a-image>
+            <a-image interactiv src="#t25" position="6 0 0" width="2.5" height="3.5"></a-image>
+        </a-entity>
+
+        <a-entity camera look-controls wasd-controls position="0 1.6 0">
+            <a-cursor color="red" raycaster="objects: [interactiv]"></a-cursor>
+        </a-entity>
+
+    </a-scene>
+</body>
+</html>
